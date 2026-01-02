@@ -1,3 +1,2 @@
 print('haha')
-
-print('extra dingen op de main')
+print('hello world')
