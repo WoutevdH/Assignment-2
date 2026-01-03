@@ -68,22 +68,22 @@ def aircraft_fleet_loader():
     aircraft_types = aircraft_data.columns.tolist()
 
     ##Aircraft specs
-    speed = aircraft_data.loc["Speed [km/h]"].to_dict()
-    seats = aircraft_data.loc["Seats"].to_dict()
+    ac_speed = aircraft_data.loc["Speed [km/h]"].to_dict()
+    ac_seats = aircraft_data.loc["Seats"].to_dict()
     ac_TAT = aircraft_data.loc["Average TAT [min]"].to_dict()
     ac_range = aircraft_data.loc["Maximum Range [km]"].to_dict()
-    runway_req = aircraft_data.loc["Runway Required [m]"].to_dict()
+    ac_runway_req = aircraft_data.loc["Runway Required [m]"].to_dict()
 
     ##Aircraft operating costs
-    daily_lease = aircraft_data.loc["Lease Cost [€/day]"].to_dict()
-    fixed_cost_per_flight = aircraft_data.loc["Fixed Operating Cost (Per Fligth Leg)  [€]"].to_dict()
-    cost_per_hour = aircraft_data.loc["Cost per Hour"].to_dict()
-    fuel_cost_param = aircraft_data.loc["Fuel Cost Parameter"].to_dict()
+    ac_daily_lease = aircraft_data.loc["Lease Cost [€/day]"].to_dict()
+    ac_fixed_cost_per_flight = aircraft_data.loc["Fixed Operating Cost (Per Fligth Leg)  [€]"].to_dict()
+    ac_cost_per_hour = aircraft_data.loc["Cost per Hour"].to_dict()
+    ac_fuel_cost_param = aircraft_data.loc["Fuel Cost Parameter"].to_dict()
 
     ##Fleet availability
     fleet_availability = aircraft_data.loc["Fleet"].to_dict()
 
-    return speed, seats, ac_TAT, ac_range, runway_req, daily_lease, fixed_cost_per_flight, cost_per_hour, fuel_cost_param, fleet_availability
+    return aircraft_types, ac_speed, ac_seats, ac_TAT, ac_range, ac_runway_req, ac_daily_lease, ac_fixed_cost_per_flight, ac_cost_per_hour, ac_fuel_cost_param, fleet_availability
 
 
 def hour_coeff_loader():
@@ -111,6 +111,3 @@ def hourly_demand_calculator(demand, hour_coeffs_per_city):
     return hourly_demand
 
 
-
-hourly_demand = hourly_demand_calculator(demand_loader(), hour_coeff_loader())
-#print(hourly_demand[('London', 'Paris', 13)])
