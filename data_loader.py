@@ -113,4 +113,4 @@ def hourly_demand_calculator(demand, hour_coeffs_per_city):
 
 
 hourly_demand = hourly_demand_calculator(demand_loader(), hour_coeff_loader())
-print(hourly_demand[('London', 'Paris', 13)])
+#print(hourly_demand[('London', 'Paris', 13)])
